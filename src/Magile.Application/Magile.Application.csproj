@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Service\Service.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Magile.Service\Magile.Service.csproj" />
+    <ProjectReference Include="..\Magile.Domain\Magile.Domain.csproj" />
   </ItemGroup>
 
 </Project>

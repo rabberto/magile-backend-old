@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Magile.Domain\Magile.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Magile.Data\Magile.Data.csproj" />
+    <ProjectReference Include="..\Magile.CrossCuting\Magile.CrossCuting.csproj" />
+    <ProjectReference Include="..\Magile.Domain\Magile.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
