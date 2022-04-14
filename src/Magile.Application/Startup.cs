@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Magile.CrossCuting.DependencyInjection;
+using Magile.CrossCuting.DependencyIntection;
 using Magile.Data.Context;
 using Magile.Domain.Interfaces;
 using Magile.Service.Services;
@@ -31,9 +32,12 @@ namespace Application
         public void ConfigureServices(IServiceCollection services)
         {
 
-            ConfigureService.ConfigureDependenciesService(services);
-
             services.AddControllers();
+
+            ConfigureService.ConfigureDependenciesService(services);
+            ConfigureRepository.ConfigureDependenciesRepository(services);
+
+            //ADICIONANDO SWAGGER
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Magile - Gestão Empresarial", Version = "v1" });

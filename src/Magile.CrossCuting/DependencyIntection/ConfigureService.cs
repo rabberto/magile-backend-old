@@ -6,13 +6,13 @@ namespace Magile.CrossCuting.DependencyInjection
 {
     public class ConfigureService
     {
-        public static void ConfigureDependenciesService(IServiceCollection serviceCollection)
+        public static void ConfigureDependenciesService(IServiceCollection service)
         {
-            serviceCollection.AddTransient<IBranchService, BranchService>();
-            serviceCollection.AddTransient<IRoleService, RoleService>();
-            serviceCollection.AddTransient<ITermService, TermService>();
-            serviceCollection.AddTransient<IUserRoleService, UserRoleService>();
-            serviceCollection.AddTransient<IUserTermService, UserTermService>();
+            service.AddTransient<IBranchService, BranchService>();
+            service.AddTransient<IRoleService, RoleService>();
+            service.AddTransient<ITermService, TermService>();
+            service.AddTransient<IUserRoleService, UserRoleService>();
+            service.AddTransient<IUserTermService, UserTermService>();
         }
     }
 }
