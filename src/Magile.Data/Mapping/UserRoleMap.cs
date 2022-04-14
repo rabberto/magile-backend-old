@@ -1,8 +1,8 @@
-using Domain.Entities;
+using Magile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Data.Mapping
+namespace Magile.Data.Mapping
 {
     public class UserRoleMap : IEntityTypeConfiguration<UserRoleEntity>
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Domain.Entities
+namespace Magile.Domain.Entities
 {
     public class TermEntity : BaseEntity
     {

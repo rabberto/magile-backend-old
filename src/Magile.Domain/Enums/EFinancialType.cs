@@ -1,4 +1,4 @@
-namespace Domain.Enums
+namespace Magile.Domain.Enums
 {
     public enum EFinancialType
     {

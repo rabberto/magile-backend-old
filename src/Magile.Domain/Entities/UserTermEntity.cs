@@ -1,6 +1,6 @@
 using System;
 
-namespace Domain.Entities
+namespace Magile.Domain.Entities
 {
     public class UserTermEntity : BaseEntity
     {

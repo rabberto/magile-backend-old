@@ -1,9 +1,9 @@
 using System;
-using Data.Mapping;
-using Domain.Entities;
+using Magile.Data.Mapping;
+using Magile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Context
+namespace Magile.Data.Context
 {
     public class MagileDbContext : DbContext
     {

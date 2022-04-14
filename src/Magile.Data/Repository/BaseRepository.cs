@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Data.Context;
-using Domain.Entities;
+using Magile.Data.Context;
+using Magile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Repository
+namespace Magile.Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {

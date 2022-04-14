@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/Application/bin/Debug/net5.0/Application.dll",
+            "program": "${workspaceFolder}/src/Magile.Application/bin/Debug/net5.0/Magile.Application.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Application",
+            "cwd": "${workspaceFolder}/src/Magile.Application",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

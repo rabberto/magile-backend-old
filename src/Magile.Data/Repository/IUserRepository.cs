@@ -1,6 +1,6 @@
-using Domain.Entities;
+using Magile.Domain.Entities;
 
-namespace Data.Repository
+namespace Magile.Data.Repository
 {
     public interface IUserRepository : IRepository<UserEntity>
     {

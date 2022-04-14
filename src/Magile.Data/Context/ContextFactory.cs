@@ -2,7 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Data.Context
+namespace Magile.Data.Context
 {
     public class ContextFactory : IDesignTimeDbContextFactory<MagileDbContext>
     {

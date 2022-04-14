@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Data.Context;
-using Domain.Entities;
+using Magile.Domain.Entities;
 
-namespace Data.Repository
+namespace Magile.Data.Repository
 {
     public interface IRepository<T> where T : BaseEntity
     {

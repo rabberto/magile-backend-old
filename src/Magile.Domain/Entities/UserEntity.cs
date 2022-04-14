@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Domain.Enums;
+using Magile.Domain.Enums;
 
-namespace Domain.Entities
+namespace Magile.Domain.Entities
 {
     public class UserEntity : BaseEntity
     {
