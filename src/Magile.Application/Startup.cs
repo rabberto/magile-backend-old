@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Magile.CrossCuting.DependencyInjection;
+using Magile.Data.Context;
+using Magile.Domain.Interfaces;
+using Magile.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,10 +31,12 @@ namespace Application
         public void ConfigureServices(IServiceCollection services)
         {
 
+            ConfigureService.ConfigureDependenciesService(services);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Application", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Magile - Gestão Empresarial", Version = "v1" });
             });
         }
 

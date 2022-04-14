@@ -2,6 +2,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Magile.Domain\Magile.Domain.csproj" />
+    <ProjectReference Include="..\Magile.Service\Magile.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
   </ItemGroup>
 
   <PropertyGroup>

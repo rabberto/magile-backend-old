@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Magile.Service\Magile.Service.csproj" />
     <ProjectReference Include="..\Magile.Domain\Magile.Domain.csproj" />
+    <ProjectReference Include="..\Magile.CrossCuting\Magile.CrossCuting.csproj" />
   </ItemGroup>
 
 </Project>
