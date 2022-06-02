@@ -20,7 +20,7 @@ namespace Magile.CrossCuting.DependencyIntection
             service.AddScoped<IUserTermRepository, UserTermImplementation>();
 
             service.AddDbContext<MagileDbContext>(
-                options => options.UseMySql("Server=localhost;Port=3306;Database=dbCurso;Uid=root;Pwd=develop1984",
+                options => options.UseMySql("Server=localhost;Port=3306;Database=dbMagile;Uid=root;Pwd=develop1984",
                  new MySqlServerVersion(new Version(5, 7, 33))));
         }
     }

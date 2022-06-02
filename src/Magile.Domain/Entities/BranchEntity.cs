@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Magile.Domain.Models;
 
 namespace Magile.Domain.Entities
 {
@@ -8,13 +9,17 @@ namespace Magile.Domain.Entities
     {
         private IList<UserEntity> _users;
 
-        public BranchEntity(string name, string address, string phone, bool matrix, string externalId)
+        public BranchEntity()
+        {
+            _users = new List<UserEntity>();
+        }
+
+        public BranchEntity(string name, string address, string phone, string externalId)
         {
             Name = name;
             IsActive = true;
             Address = address;
             Phone = phone;
-            Matrix = matrix;
             ExternalId = externalId;
             _users = new List<UserEntity>();
         }
@@ -33,7 +38,17 @@ namespace Magile.Domain.Entities
             UpdateAt = DateTime.Now;
             UserUpdateAt = userUpdateAt;
         }
+
+        public BranchEntity UpdateEntity(BranchEntity entity, BranchUpdateModel mode)
+        {
+            entity.Name = mode.Name;
+            entity.Address = mode.Address;
+            entity.Phone = mode.Phone;
+            entity.ExternalId = mode.ExternalId;
+            entity.Matrix = mode.Matrix;
+            entity.UpdateAt = DateTime.Now;
+            entity.UserUpdateAt = mode.UserUpdateAt;
+            return entity;
+        }
     }
-
-
 }
