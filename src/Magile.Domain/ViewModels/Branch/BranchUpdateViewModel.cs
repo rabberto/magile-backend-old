@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Magile.Domain.Models
+namespace Magile.Domain.ViewModels.Branch
 {
-    public class BranchUpdateModel
+    public class BranchUpdateViewModel
     {
         [Required]
         public Guid Id { get; set; }
@@ -17,5 +17,7 @@ namespace Magile.Domain.Models
         [Required]
         public string UserUpdateAt { get; set; }
         public bool Matrix { get; set; }
+        public bool IsActive { get; set; }
+
     }
 }

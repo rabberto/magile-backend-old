@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Magile.Domain.Models;
+using Magile.Domain.ViewModels.Branch;
 
 namespace Magile.Domain.Entities
 {
@@ -32,22 +32,29 @@ namespace Magile.Domain.Entities
         public string ExternalId { get; private set; }
         public IReadOnlyCollection<UserEntity> Users { get { return _users.ToArray(); } }
 
-        public void ChangeStatus(bool isActive, string userUpdateAt)
+        public BranchEntity Insert(BranchInsertViewModel model)
         {
-            IsActive = isActive;
-            UpdateAt = DateTime.Now;
-            UserUpdateAt = userUpdateAt;
-        }
-
-        public BranchEntity UpdateEntity(BranchEntity entity, BranchUpdateModel mode)
-        {
-            entity.Name = mode.Name;
-            entity.Address = mode.Address;
-            entity.Phone = mode.Phone;
-            entity.ExternalId = mode.ExternalId;
-            entity.Matrix = mode.Matrix;
+            var entity = new BranchEntity();
+            entity.Name = model.Name;
+            entity.Address = model.Address;
+            entity.Phone = model.Phone;
+            entity.ExternalId = model.ExternalId;
+            entity.Matrix = model.Matrix;
             entity.UpdateAt = DateTime.Now;
-            entity.UserUpdateAt = mode.UserUpdateAt;
+            entity.UserCreateAt = model.UserCreateAt;
+            entity.IsActive = true;
+            return entity;
+        }
+        public BranchEntity Update(BranchEntity entity, BranchUpdateViewModel model)
+        {
+            entity.Name = model.Name;
+            entity.Address = model.Address;
+            entity.Phone = model.Phone;
+            entity.ExternalId = model.ExternalId;
+            entity.Matrix = model.Matrix;
+            entity.UpdateAt = DateTime.Now;
+            entity.UserUpdateAt = model.UserUpdateAt;
+            entity.IsActive = model.IsActive;
             return entity;
         }
     }

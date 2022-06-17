@@ -2,6 +2,7 @@ using Magile.Data.Context;
 using Magile.Data.Repository;
 using Magile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Magile.Data.Implementation
 {
@@ -11,5 +12,8 @@ namespace Magile.Data.Implementation
 
         public UserImplementation(MagileDbContext context) : base(context)
             => _dataSet = context.Set<UserEntity>();
+
+        public async Task<UserEntity> GetByEmailAsync(string email)
+            => await _dataSet.FirstOrDefaultAsync(x => x.Email == email);
     }
 }

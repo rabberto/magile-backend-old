@@ -11,6 +11,7 @@ namespace Magile.CrossCuting.DependencyInjection
             service.AddTransient<IBranchService, BranchService>();
             service.AddTransient<IRoleService, RoleService>();
             service.AddTransient<ITermService, TermService>();
+            service.AddTransient<IUserService, UserService>();
             service.AddTransient<IUserRoleService, UserRoleService>();
             service.AddTransient<IUserTermService, UserTermService>();
         }

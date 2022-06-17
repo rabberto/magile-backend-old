@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Magile.Domain.Models
+namespace Magile.Domain.ViewModels.Branch
 {
-    public class BranchInsertModel
+    public class BranchInsertViewModel
 
     {
         [Required]
@@ -14,5 +14,6 @@ namespace Magile.Domain.Models
         public string ExternalId { get; set; }
         [Required]
         public string UserCreateAt { get; set; }
+        public bool Matrix { get; set; }
     }
 }

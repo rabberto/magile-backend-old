@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Magile.CrossCuting.DependencyInjection;
 using Magile.CrossCuting.DependencyIntection;
@@ -32,7 +33,14 @@ namespace Application
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddJsonOptions(x =>
+                {
+                    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                }
+                );
 
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);

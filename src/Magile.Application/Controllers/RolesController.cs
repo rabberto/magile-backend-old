@@ -1,27 +1,30 @@
+﻿using Magile.Domain.Entities;
+using Magile.Domain.Interfaces;
+using Magile.Domain.ViewModels.Role;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Magile.Domain.Entities;
-using Magile.Domain.Interfaces;
-using Magile.Domain.ViewModels.Branch;
-using Microsoft.AspNetCore.Mvc;
+
 
 namespace Magile.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BranchesController : ControllerBase
+    public class RolesController : ControllerBase
     {
-        private IBranchService _service;
-        public BranchesController(IBranchService service)
+        private IRoleService _service;
+
+        public RolesController(IRoleService service) 
             => _service = service;
+
 
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             if (!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             try
             {
@@ -41,30 +44,30 @@ namespace Magile.Application.Controllers
         public async Task<IActionResult> GetAll()
         {
             if (!ModelState.IsValid)
-                return BadRequest();
+                return BadRequest(ModelState);
 
             try
             {
-                return Ok(await _service.GetAll());
-            }
-            catch (System.Exception ex)
+                var result = await _service.GetAll();
+                return Ok(result);
+
+    }
+            catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
-        }
 
+        }
+        
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] BranchInsertViewModel model)
+        public async Task<IActionResult> Post([FromBody] RoleInsertViewModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
             try
             {
-                if (model == null)
-                    return BadRequest();
-
-                var entity = new BranchEntity();
+                var entity = new RoleEntity();
                 var insertEntity = entity.Insert(model);
                 return Ok(await _service.Post(insertEntity));
             }
@@ -75,20 +78,21 @@ namespace Magile.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] BranchUpdateViewModel model)
+        public async Task<IActionResult> Put([FromBody] RoleUpdateViewModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
+
             try
             {
                 var result = await _service.Get(model.Id);
                 if (result == null)
-                    BadRequest("Registro não encontrado");
-                
-                var entity = new BranchEntity();
+                    return NotFound("Registro não encontrado");
+
+                var entity = new RoleEntity();
                 var updateEntity = entity.Update(result, model);
                 return Ok(await _service.Put(updateEntity));
-            }
+            } 
             catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
@@ -103,15 +107,17 @@ namespace Magile.Application.Controllers
 
             try
             {
-                var result = _service.Get(id);
+                var result = await _service.Get(id);
                 if (result == null)
-                    BadRequest("Registro não encontrado");
+                    return NotFound("Registro não encontrado");
+
                 return Ok(await _service.Delete(id));
-            }
-            catch (System.Exception ex)
+            } 
+            catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
+            
         }
     }
 }

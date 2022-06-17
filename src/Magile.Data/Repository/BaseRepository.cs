@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Magile.Data.Context;
 using Magile.Domain.Entities;
+using Magile.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Magile.Data.Repository
@@ -30,7 +31,7 @@ namespace Magile.Data.Repository
                 await _context.SaveChangesAsync();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -44,9 +45,9 @@ namespace Magile.Data.Repository
                 await _context.SaveChangesAsync();
                 return entity;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -56,9 +57,9 @@ namespace Magile.Data.Repository
             {
                 return await _database.AsNoTracking().ToListAsync();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -72,9 +73,9 @@ namespace Magile.Data.Repository
 
                 return result;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -90,9 +91,9 @@ namespace Magile.Data.Repository
                 await _context.SaveChangesAsync();
                 return entity;
             }
-            catch
+            catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
     }

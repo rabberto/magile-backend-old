@@ -26,7 +26,7 @@ namespace Magile.Data.Mapping
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(12);
 
-            builder.Property(x => x.Key)
+            builder.Property(x => x.KeyValidation)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(36);
