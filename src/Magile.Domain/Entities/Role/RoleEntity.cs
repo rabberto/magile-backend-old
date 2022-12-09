@@ -11,34 +11,25 @@ namespace Magile.Domain.Entities.Role
 
         public RoleEntity()
         {
-        }
-        public RoleEntity(string name, string description)
-        {
-            Name = name;
-            Description = description;
+            Users = new List<UserEntity>();
         }
 
         public string Name { get; private set; }
         public string Description { get; private set; }
+        public bool Acitve { get; private set; }
         public List<UserEntity> Users { get; }
 
-        public RoleEntity Insert(RoleInsertViewModel model)
+        public RoleEntity Insert(RoleEntity roleEntity)
         {
-            var entity = new RoleEntity();
-            entity.Name = model.Name;
-            entity.Description = model.Description;
-            entity.UserCreateAt = model.UserCreateAt;
-            entity.CreateAt = DateTime.Now;
-            return entity;
+            roleEntity.Acitve = true;
+            roleEntity.CreateAt = DateTime.Now;
+            return roleEntity;
         }
 
-        public RoleEntity Update(RoleEntity entity, RoleUpdateViewModel model)
+        public RoleEntity Update(RoleEntity roleEntity)
         {
-            entity.Name = model.Name;
-            entity.Description = model.Description;
-            entity.UserUpdateAt = model.UserUpdateAt;
-            entity.UpdateAt = DateTime.Now;
-            return entity;
+            roleEntity.UpdateAt = DateTime.Now;
+            return roleEntity;
         }
     }
 }

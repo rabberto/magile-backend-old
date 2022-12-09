@@ -34,7 +34,7 @@ namespace Magile.Domain.ViewModels.User
         [Required]
         public decimal CardLimit { get; set; }
         [Required]
-        public EFinancialType StatusCard { get; set; }
+        public EAccountType StatusCard { get; set; }
         [Required]
         public string CostCenter { get; set; }
         [Required]

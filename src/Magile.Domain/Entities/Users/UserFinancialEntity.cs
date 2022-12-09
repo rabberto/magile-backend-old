@@ -1,18 +1,23 @@
 ﻿using Magile.Domain.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Magile.Domain.Entities.Users
 {
-    public class UserFinancialEntity
+    public class UserFinancialEntity : UserEntity
     {
         public string CardNumber { get; set; }
         public decimal CardLimit { get; set; }
-        public EFinancialType StatusCard { get; set; }
+        public EAccountType StatusCard { get; set; }
         public string CostCenter { get; set; }
         public string CashAccount { get; set; }
+
+        public static UserFinancialEntity Insert(UserFinancialEntity userFinancialEntity)
+            => userFinancialEntity;
+
+        public static UserFinancialEntity Update(UserFinancialEntity userFinancialEntity)
+        {
+            userFinancialEntity.UpdateAt = DateTime.UtcNow;
+            return userFinancialEntity;
+        }
     }
 }
