@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Role;
 
 namespace Magile.Domain.Interfaces
 {

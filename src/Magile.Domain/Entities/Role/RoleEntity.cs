@@ -1,9 +1,10 @@
+using Magile.Domain.Entities.Users;
 using Magile.Domain.ViewModels.Role;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Role
 {
     public class RoleEntity : BaseEntity
     {
@@ -20,7 +21,7 @@ namespace Magile.Domain.Entities
         public string Name { get; private set; }
         public string Description { get; private set; }
         public List<UserEntity> Users { get; }
-        
+
         public RoleEntity Insert(RoleInsertViewModel model)
         {
             var entity = new RoleEntity();
@@ -37,7 +38,7 @@ namespace Magile.Domain.Entities
             entity.Description = model.Description;
             entity.UserUpdateAt = model.UserUpdateAt;
             entity.UpdateAt = DateTime.Now;
-            return entity;        
+            return entity;
         }
     }
 }

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Magile.Domain.Entities.Branch;
+using Magile.Domain.Entities.Role;
+using Magile.Domain.Entities.Term;
 using Magile.Domain.Enums;
 using Magile.Domain.Interfaces;
 using Magile.Domain.ViewModels.User;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Users
 {
     public class UserEntity : BaseEntity
     {
@@ -36,25 +39,25 @@ namespace Magile.Domain.Entities
             Roles = new List<RoleEntity>();
         }
 
-        public string FirstName { get;  set; }
-        public string LastName { get;  set; }
-        public string Email { get;  set; }
-        public string Password { get;  set; }
-        public string Document { get;  set; }
-        public Guid KeyValidation { get;  set; }
-        public DateTime BirthDate { get;  set; }
-        public bool IsActive { get;  set; }
-        public string Phone { get;  set; }
-        public string ExternalId { get;  set; }
-        public string CardNumber { get; set; }
-        public decimal CardLimit { get; set; }
-        public EFinancialType StatusCard { get; set; }
-        public string CostCenter { get; set; }
-        public string CashAccount { get; set; }
-        public Guid? SupervisorId { get;  set; }
-        public UserEntity Supervisor { get;  set; }
-        public Guid BranchId { get; set; }
-        public BranchEntity Branch { get;  set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Email { get; private set; }
+        public string Password { get; private set; }
+        public string Document { get; private set; }
+        public Guid KeyValidation { get; private set; }
+        public DateTime BirthDate { get; private set; }
+        public bool IsActive { get; private set; }
+        public string Phone { get; private set; }
+        public string ExternalId { get; private set; }
+        public string CardNumber { get; private set; }
+        public decimal CardLimit { get; private set; }
+        public EFinancialType StatusCard { get; private set; }
+        public string CostCenter { get; private set; }
+        public string CashAccount { get; private set; }
+        public Guid? SupervisorId { get; private set; }
+        public UserEntity Supervisor { get; private set; }
+        public Guid BranchId { get; private set; }
+        public BranchEntity Branch { get; private set; }
         public List<TermEntity> Terms { get; }
         public List<RoleEntity> Roles { get; }
 
@@ -69,7 +72,7 @@ namespace Magile.Domain.Entities
             userEntity.Phone = model.Phone;
             userEntity.ExternalId = model.ExternalId;
             userEntity.StatusCard = EFinancialType.NoCard;
-            userEntity.SupervisorId = (model.SupervisorId == Guid.Empty ? null : model.SupervisorId);
+            userEntity.SupervisorId = model.SupervisorId == Guid.Empty ? null : model.SupervisorId;
             userEntity.BranchId = model.BranchId;
             userEntity.Password = PasswordDefault();
             return userEntity;
@@ -141,17 +144,17 @@ namespace Magile.Domain.Entities
 
         public bool ChangePassword(UserEntity user, string password, string newPassword)
         {
-            if(password == newPassword)
+            if (password == newPassword)
                 return false; //criar exception
 
-            if(password == null || newPassword == null)
+            if (password == null || newPassword == null)
                 return false; //criar exception
 
-            if(password.Length <= 8)
+            if (password.Length <= 8)
                 return false; //criar exception
 
             user.Password = newPassword;
             return true;
         }
     }
- }
+}

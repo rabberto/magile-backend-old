@@ -1,6 +1,7 @@
+using Magile.Domain.Entities.Role;
 using System;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Users
 {
     public class UserRoleEntity : BaseEntity
     {

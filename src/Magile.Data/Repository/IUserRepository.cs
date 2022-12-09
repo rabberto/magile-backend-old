@@ -1,4 +1,4 @@
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Users;
 using System.Threading.Tasks;
 
 namespace Magile.Data.Repository

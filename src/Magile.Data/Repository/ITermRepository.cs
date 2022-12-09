@@ -1,4 +1,4 @@
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Term;
 
 namespace Magile.Data.Repository
 {

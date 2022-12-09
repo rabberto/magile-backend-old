@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Magile.Domain.Entities.Users;
 using Magile.Domain.ViewModels.Branch;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Branch
 {
     public class BranchEntity : BaseEntity
     {

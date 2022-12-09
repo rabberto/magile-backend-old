@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Users
 {
-    public  class UserFinancialEntity
+    public class UserFinancialEntity
     {
         public string CardNumber { get; set; }
         public decimal CardLimit { get; set; }

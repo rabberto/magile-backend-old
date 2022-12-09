@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Users;
 using Magile.Domain.ViewModels.User;
 
 namespace Magile.Domain.Interfaces

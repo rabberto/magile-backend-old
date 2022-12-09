@@ -1,4 +1,4 @@
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Branch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

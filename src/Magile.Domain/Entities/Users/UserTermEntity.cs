@@ -1,6 +1,7 @@
+using Magile.Domain.Entities.Term;
 using System;
 
-namespace Magile.Domain.Entities
+namespace Magile.Domain.Entities.Users
 {
     public class UserTermEntity : BaseEntity
     {

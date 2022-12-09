@@ -1,6 +1,9 @@
 using System;
 using Magile.Data.Mapping;
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Branch;
+using Magile.Domain.Entities.Role;
+using Magile.Domain.Entities.Term;
+using Magile.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Magile.Data.Context

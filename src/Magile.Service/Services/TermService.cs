@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Magile.Data.Repository;
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Term;
 using Magile.Domain.Interfaces;
 
 namespace Magile.Service.Services

@@ -1,6 +1,6 @@
 using Magile.Data.Context;
 using Magile.Data.Repository;
-using Magile.Domain.Entities;
+using Magile.Domain.Entities.Term;
 using Microsoft.EntityFrameworkCore;
 
 namespace Magile.Data.Implementation
