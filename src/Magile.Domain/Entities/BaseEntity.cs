@@ -1,18 +1,25 @@
+using Magile.Domain.Entities.Users;
 using System;
 
 namespace Magile.Domain.Entities
 {
     public abstract class BaseEntity
     {
-        public Guid Id { get; private set; }
-        private DateTime? _createAt { get; set; }
-        public DateTime? CreateAt
+        protected BaseEntity()
         {
-            get { return _createAt; }
-            set { _createAt = (value == null ? DateTime.UtcNow : value); }
+            Id = Guid.NewGuid();
+            CreateAt = DateTime.Now;
         }
-        public DateTime UpdateAt { get; set; }
-        public string UserCreateAt { get; private set; }
-        public string UserUpdateAt { get; private set; }
+
+        public Guid Id { get; private set; }
+        public DateTime CreateAt { get; private set; }
+        public DateTime? UpdateAt { get; set; }
+        public Guid UserCreateId { get; set; }
+        public UserEntity UserCreate { get; }
+        public Guid? UserUpdateId { get; set; }
+        public UserEntity UserUpdate { get; }
+
+        public void Insert(Guid userCreateId)
+            => UserCreateId = userCreateId;
     }
 }
