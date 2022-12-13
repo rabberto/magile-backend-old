@@ -22,7 +22,6 @@ namespace Magile.Domain.Entities.Role
         public RoleEntity Insert(RoleEntity roleEntity)
         {
             roleEntity.Acitve = true;
-            roleEntity.CreateAt = DateTime.Now;
             return roleEntity;
         }
 
