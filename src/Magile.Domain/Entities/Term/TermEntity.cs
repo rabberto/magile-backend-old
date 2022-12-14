@@ -15,7 +15,7 @@ namespace Magile.Domain.Entities.Term
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Base64 { get; set; }
+        public string DocumentCloudPath { get; private set; }
         public bool Active { get; set; }
         public List<UserEntity> Users { get; }
 

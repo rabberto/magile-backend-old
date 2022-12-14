@@ -1,6 +1,4 @@
-﻿using Magile.Domain.Entities.Category;
-
-namespace Magile.Domain.Entities.CategoryFinancial
+﻿namespace Magile.Domain.Entities.Categories
 {
     public sealed class CategoryFinancialEntity : CategoryEntity
     {

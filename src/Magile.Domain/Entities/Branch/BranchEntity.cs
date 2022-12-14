@@ -1,3 +1,5 @@
+using Magile.Domain.Entities.Cash;
+using Magile.Domain.Entities.Departament;
 using Magile.Domain.Entities.Users;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,8 @@ namespace Magile.Domain.Entities.Branch
         public BranchEntity()
         {
             Users = new List<UserEntity>();
+            Departaments = new List<DepartamentEntity>();
+            Cash = new List<CashEntity>();
         }
 
         public string Name { get; private set; }
@@ -18,6 +22,8 @@ namespace Magile.Domain.Entities.Branch
         public bool Matrix { get; private set; }
         public string ExternalId { get; private set; }
         public List<UserEntity> Users { get; }
+        public List<DepartamentEntity> Departaments { get;}
+        public List<CashEntity> Cash { get; }
 
         public BranchEntity Insert(BranchEntity branchEntity)
         {

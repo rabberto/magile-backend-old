@@ -1,4 +1,5 @@
 using Magile.Domain.Entities.Branch;
+using Magile.Domain.Entities.Cash;
 using Magile.Domain.Entities.Role;
 using Magile.Domain.Entities.Term;
 using System;
@@ -19,17 +20,18 @@ namespace Magile.Domain.Entities.Users
         public string Email { get; private set; }
         public string Password { get; private set; }
         public string Document { get; private set; }
-        public Guid KeyValidation { get; private set; }
+        public Guid? KeyValidation { get; private set; }
         public DateTime BirthDate { get; private set; }
         public bool Active { get; private set; }
         public string Phone { get; private set; }
         public string? ExternalId { get; private set; }
         public Guid? SupervisorId { get; private set; }
         public Guid? BranchId { get; private set; }
-        public UserEntity Supervisor { get; }
+        public SupervisorEntity Supervisor { get; }
         public BranchEntity Branch { get; }
         public List<TermEntity> Terms { get; }
         public List<RoleEntity> Roles { get; }
+        public List<CashEntity> Cash { get; }
 
         public UserEntity Insert(UserEntity entity)
         {

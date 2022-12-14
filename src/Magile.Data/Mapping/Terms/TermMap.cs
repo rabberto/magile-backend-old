@@ -1,14 +1,14 @@
-using Magile.Domain.Entities.Role;
+using Magile.Domain.Entities.Term;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Magile.Data.Mapping
+namespace Magile.Data.Mapping.Terms
 {
-    public class RoleMap : IEntityTypeConfiguration<RoleEntity>
+    public class TermMap : IEntityTypeConfiguration<TermEntity>
     {
-        public void Configure(EntityTypeBuilder<RoleEntity> builder)
+        public void Configure(EntityTypeBuilder<TermEntity> builder)
         {
-            builder.ToTable("Role")
+            builder.ToTable("Term")
                 .HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
@@ -21,8 +21,13 @@ namespace Magile.Data.Mapping
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(300);
 
+            builder.Property(x => x.DocumentCloudPath)
+                .IsRequired()
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(500);
+
             builder.HasMany(x => x.Users)
-                .WithMany(x => x.Roles);
+                .WithMany(x => x.Terms);
         }
     }
 }

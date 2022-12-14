@@ -2,7 +2,7 @@ using Magile.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Magile.Data.Mapping
+namespace Magile.Data.Mapping.Users
 {
     public class UserTermMap : IEntityTypeConfiguration<UserTermEntity>
     {

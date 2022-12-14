@@ -2,7 +2,7 @@ using Magile.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Magile.Data.Mapping
+namespace Magile.Data.Mapping.Users
 {
     public class UserMap : IEntityTypeConfiguration<UserEntity>
     {
@@ -21,13 +21,22 @@ namespace Magile.Data.Mapping
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(100);
 
+            builder.Property(x => x.Email)
+                .IsRequired()
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(100);
+
             builder.Property(x => x.Password)
                 .IsRequired()
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(12);
 
-            builder.Property(x => x.KeyValidation)
+            builder.Property(x => x.Document)
                 .IsRequired()
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(20);
+
+            builder.Property(x => x.KeyValidation)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(36);
 
@@ -42,31 +51,16 @@ namespace Magile.Data.Mapping
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(20);
 
-            builder.Property(x => x.CardNumber)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(20);
-
-            builder.Property(x => x.CardLimit)
-                .HasColumnType("DECIMAL")
-                .HasMaxLength(18);
-
-            builder.Property(x => x.StatusCard)
-                .HasColumnType("SMALLINT")
-                .HasMaxLength(1);
-
-            builder.Property(x => x.CostCenter)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(20);
-
-            builder.Property(x => x.CashAccount)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(20);
-
             builder.Property(x => x.SupervisorId)
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(36);
 
-            builder.Property(x => x.BranchId)
+            builder.Property(x => x.Branch)
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(36);
+
+            builder.HasOne(x => x.Supervisor)
+                .WithMany(x => x.Users);
 
             builder.HasOne(x => x.Branch)
                 .WithMany(x => x.Users);

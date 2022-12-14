@@ -1,5 +1,6 @@
 ﻿using Magile.Domain.Entities.Branch;
-using Magile.Domain.Entities.CategoryFinancial;
+using Magile.Domain.Entities.Categories;
+using Magile.Domain.Entities.Users;
 using Magile.Domain.Enums;
 using System;
 
@@ -9,20 +10,22 @@ namespace Magile.Domain.Entities.Cash
     {
         private readonly DateTime _initialDate = DateTime.MinValue;
 
+        public UserEntity User { get; set; }
         public Guid BranchId { get; private set; }
         public BranchEntity Branch { get; private set; }
         public DateTime IssueDate { get; private set; }
         public string DocumentNumber { get; private set; }
         public decimal Value { get; private set; }
+        public bool Card { get; private set; }
         public EOperationCash Operation { get; private set; }
         public Guid CategoryParentId { get; }
         public CategoryFinancialEntity CategoryParent { get; }
         public Guid CategoryId { get; private set; }
         public CategoryFinancialEntity Category { get; }
-        public string DocumentPath { get; private set; }
-        public string DocumentName { get; private set; }
+        public string EvidenceCloudPath { get; private set; }
+        public string EvidenceName { get; private set; }
         public EStatusCash Status { get; private set; }
-        public string Historic { get; private set; }
+        public string History { get; private set; }
 
         public CashEntity Insert(CashEntity cashEntity)
         {
