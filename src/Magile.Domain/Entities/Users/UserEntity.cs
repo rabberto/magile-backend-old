@@ -24,7 +24,7 @@ namespace Magile.Domain.Entities.Users
         public DateTime BirthDate { get; private set; }
         public bool Active { get; private set; }
         public string Phone { get; private set; }
-        public string? ExternalId { get; private set; }
+        public string ExternalId { get; private set; }
         public Guid? SupervisorId { get; private set; }
         public Guid? BranchId { get; private set; }
         public SupervisorEntity Supervisor { get; }

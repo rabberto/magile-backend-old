@@ -33,7 +33,7 @@ namespace Magile.Data.Repository
             }
             catch (Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message);
             }
         }
 
